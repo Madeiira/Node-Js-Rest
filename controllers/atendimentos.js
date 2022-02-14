@@ -10,7 +10,7 @@ module.exports = app => {
 
 
     app.post('/atendimentos', (req, res) => {
-        
+
 
         console.log(bodyres)
         res.send(bodyres)

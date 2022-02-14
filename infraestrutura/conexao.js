@@ -1,4 +1,4 @@
-const mysql = require ('mysql2')
+const mysql = require('mysql2')
 
 const conexao = mysql.createConnection({
 
@@ -7,7 +7,7 @@ const conexao = mysql.createConnection({
     user: 'root',
     password: 'Anjos123@',
     database: 'agenda_petshop'
- 
+
 })
 
 module.exports = conexao // exportar aquilo que será utilizado dentro de todo o projeto, em outros modulos
