@@ -2,7 +2,9 @@
 
 // EXPORTAR MODULO
 
-bodyres = JSON.parse('{"result":true}')
+const Atendimento = require('../models/atendimentos')
+
+resposta = JSON.parse('{"resultado":"Atendimento cadastrado com sucesso!"}')
 
 module.exports = app => {
 
@@ -11,9 +13,18 @@ module.exports = app => {
 
     app.post('/atendimentos', (req, res) => {
 
+        
+        const corpo = req.body
+        
+        if(corpo.observacoes == '' || corpo.observacoes == null){
+            corpo.observacoes = "Sem Observações"
+        }
 
-        console.log(bodyres)
-        res.send(bodyres)
+
+        Atendimento.adiciona(corpo)
+
+
+        res.send(resposta.resultado)
     })
 
-}
+} 
