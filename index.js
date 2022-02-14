@@ -2,7 +2,7 @@
 
 const customExmpress = require('./config/customExpress')
 
-const conexao = require('./infrastructure/connection')
+const conexao = require('./infraestrutura/conexao')
 
 conexao.connect(erro=>{
 
