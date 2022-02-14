@@ -11,7 +11,9 @@ module.exports = () => {
 
     const app = express()
 
-    app.use(bodyParser.urlencoded({extended: true})) // BROWSER FORMULARIO
+    app.use(bodyParser.urlencoded({
+        extended: true
+    })) // BROWSER FORMULARIO
 
     app.use(bodyParser.json()) // PERMITE O USO COMO SERVIÇO
 

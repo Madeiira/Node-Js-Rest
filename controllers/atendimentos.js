@@ -13,10 +13,10 @@ module.exports = app => {
 
     app.post('/atendimentos', (req, res) => {
 
-        
+
         const corpo = req.body
-        
-        if(corpo.observacoes == '' || corpo.observacoes == null){
+
+        if (corpo.observacoes == '' || corpo.observacoes == null) {
             corpo.observacoes = "Sem Observações"
         }
 
@@ -27,4 +27,4 @@ module.exports = app => {
         res.send(resposta.resultado)
     })
 
-} 
+}
