@@ -2,6 +2,8 @@
 
 // EXPORTAR MODULO
 
+bodyres = JSON.parse('{"result":true}')
+
 module.exports = app => {
 
     app.get('/atendimentos', (req, res) => res.send('Rota de get  atendimentos.')) // // TESTE NODEMON, DEPENDENCIA QUE FAZ COM QUE ATUALIZAÇÕES SEJAM ATUALIZADAS A PARTIR DO CTRL + S
@@ -9,7 +11,6 @@ module.exports = app => {
 
     app.post('/atendimentos', (req, res) => {
         
-        bodyres = JSON.parse('{"result":true}')
 
         console.log(bodyres)
         res.send(bodyres)
