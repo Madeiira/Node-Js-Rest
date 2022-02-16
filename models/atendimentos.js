@@ -94,6 +94,12 @@ class Atendimento {
     atualizarCampo(id, valores, res) { // ATULIZAR POR CAMPO (PATCH)
         const sql = 'UPDATE Atendimentos SET ? WHERE id=?'
 
+        if(valores.data){
+
+            valores.data =  moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+
+        }
+
         conexao.query(sql, [valores, id], (erro, resultados) => {
             if (erro) {
                 res.status(400).json(erro)
