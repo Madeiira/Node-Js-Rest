@@ -42,7 +42,7 @@ module.exports = app => {
         const id = parseInt(req.params.id)
         const valores = req.body
     
-        Atendimento.altera(id, valores, res)
+        Atendimento.atualizarCampo(id, valores, res)
     })
 
 }
