@@ -21,10 +21,9 @@ module.exports = app => {
         }
 
 
-        Atendimento.adiciona(corpo)
+        Atendimento.adiciona(corpo,res)
 
 
-        res.send(resposta.resultado)
     })
 
 }
