@@ -91,8 +91,18 @@ class Atendimento {
         })
     }
 
-    atualizarCampo(id,valores,res){ // ATULIZAR POR CAMPO (PATCH)
+    atualizarCampo(id, valores, res) { // ATULIZAR POR CAMPO (PATCH)
+        const sql = 'UPDATE Atendimentos SET ? WHERE id=?'
+
+        conexao.query(sql, [valores, id], (erro, resultados) => {
+            if (erro) {
+                res.status(400).json(erro)
+            } else {
+                res.status(200).json(resultados)
+            }
+        })
 
     }
 }
+
 module.exports = new Atendimento
