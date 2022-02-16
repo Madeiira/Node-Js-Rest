@@ -40,12 +40,12 @@ class Atendimento {
 
         if (errosExistentes) {
             erros.forEach(element => {
-                res.status(400).write(element.mensagem+"\n")
+                res.status(400).write(element.mensagem + "\n")
             });
             res.end()
 
         } else {
-            
+
             const atendimentoDatado = {
                 ...atendimento,
                 dataCriacao,
@@ -62,6 +62,35 @@ class Atendimento {
                 }
             })
         }
+    }
+
+    lista(res) {
+        const sql = 'SELECT * FROM Atendimentos'
+
+        conexao.query(sql, (erro, resultados) => {
+            if (erro) {
+                res.status(400).json(erro)
+            } else {
+                res.status(200).json(resultados)
+            }
+        })
+    }
+    buscaPorId(id, res) {
+        const sql = `SELECT * FROM Atendimentos WHERE id=${id}`;
+
+        conexao.query(sql, (erro, resultados) => {
+            const atendimento = resultados[0];
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json(atendimento);
+            }
+
+        })
+    }
+
+    atualizarCampo(id,valores,res){
+
     }
 }
 module.exports = new Atendimento
