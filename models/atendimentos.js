@@ -4,6 +4,7 @@ const moment = require('moment')
 const conexao = require('../infraestrutura/conexao')
 // VALIDAÇÕES DA RN, DEVEM SER FEITA NO MODELS
 class Atendimento {
+
     adiciona(atendimento, res) {
 
 
@@ -64,7 +65,7 @@ class Atendimento {
         }
     }
 
-    lista(res) {
+    lista(res) { // LISTAR TODOS
         const sql = 'SELECT * FROM Atendimentos'
 
         conexao.query(sql, (erro, resultados) => {
@@ -75,7 +76,8 @@ class Atendimento {
             }
         })
     }
-    buscaPorId(id, res) {
+
+    buscaPorId(id, res) { // LISTAR POR 1 ID
         const sql = `SELECT * FROM Atendimentos WHERE id=${id}`;
 
         conexao.query(sql, (erro, resultados) => {
@@ -89,7 +91,7 @@ class Atendimento {
         })
     }
 
-    atualizarCampo(id,valores,res){
+    atualizarCampo(id,valores,res){ // ATULIZAR POR CAMPO (PATCH)
 
     }
 }
